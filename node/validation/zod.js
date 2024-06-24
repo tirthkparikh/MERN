@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 // zod validation
-const schema=zod.array(zod.number()).min(1).max(2)
+const schema=zod.array(zod.number(),zod.string())
 app.use(express.json())
 
 /*
