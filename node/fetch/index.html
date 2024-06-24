@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    hi all
+    <div id="root"></div>
+</body>
+<script >
+const root = document.getElementById("root");
+console.log("hi");
+fetch("http://localhost:3000/")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.data);  // Log the actual data
+        const items = data.data.map(( name ) => {
+    console.log(name); // Log each name
+    return `<li>${name}</li>`;
+}).join('');
+
+        console.log(items)
+        root.innerHTML = `<ul>${items}</ul>`;
+    })
+    .catch(error => console.log(error));
+</script>
+</html>
